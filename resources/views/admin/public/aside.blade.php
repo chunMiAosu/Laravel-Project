@@ -1,13 +1,15 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/admin/index" class="brand-link">
+    <div class="brand-link">
         <img src="/admin/img/AdminLTELogo.png"
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">welcome</span>
-    </a>
+        <span class="brand-text font-weight-light">
+           welcome
+        </span>
+    </div>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -26,8 +28,9 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
+
                 <li class="nav-item">
-                    <a href="../widgets.html" class="nav-link active">
+                    <a href="/admin/statistic/totalArticle" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             情况统计
@@ -56,6 +59,12 @@
                                 <p>已通过审核</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="../../index2.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>审核不通过</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">
@@ -69,31 +78,31 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="../layout/top-nav.html" class="nav-link">
+                            <a href="/admin/article?type=politics" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>时政</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../layout/top-nav-sidebar.html" class="nav-link">
+                            <a href="/admin/article?type=finance" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>财经</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../layout/boxed.html" class="nav-link">
+                            <a href="/admin/article?type=military" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>军事</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../layout/fixed-sidebar.html" class="nav-link">
+                            <a href="/admin/article?type=education" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>教育</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../layout/fixed-topnav.html" class="nav-link">
+                            <a href="/admin/article?type=sports" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>体育</p>
                             </a>

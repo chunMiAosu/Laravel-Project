@@ -15,7 +15,7 @@ class IsLogin
      */
     public function handle($request, Closure $next)
     {
-        if(session()->get('email'))
+        if(session()->get('user_id'))
         {
             return $next($request);
         }

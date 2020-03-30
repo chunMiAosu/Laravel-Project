@@ -22,6 +22,12 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['isLog
     //后台首页路由
     Route::get('index','LoginController@index');
 
+    //"情况统计"模块路由
+    Route::get('statistic/totalArticle','StatisticController@totalArticle');
+
+    //"文章管理"模块路由
+    Route::get('article','ArticleController@article');
+    Route::get('article/delete','ArticleController@delete');//删除
 });
 //登录后退出路由
 Route::get('admin/logout','Admin\LoginController@logout');
