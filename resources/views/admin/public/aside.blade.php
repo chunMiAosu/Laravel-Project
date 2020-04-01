@@ -47,6 +47,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="/admin/me/editor" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Edit</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/me/draft" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>草稿箱</p>
+                                <span class="right badge badge-danger">2</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="../../index.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>正在审核中</p>

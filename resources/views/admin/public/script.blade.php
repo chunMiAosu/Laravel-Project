@@ -8,3 +8,5 @@
 <script src="/admin/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/admin/js/demo.js"></script>
+<!-- Summernote -->
+<script src="/admin/js/summernote-bs4.min.js"></script>

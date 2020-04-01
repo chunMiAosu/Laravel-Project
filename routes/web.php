@@ -28,6 +28,14 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['isLog
     //"文章管理"模块路由
     Route::get('article','ArticleController@article');
     Route::get('article/delete','ArticleController@delete');//删除
+
+    //"我"模块路由
+    Route::get('me/editor','MeController@editor');
+    Route::post('me/doEditor','MeController@doEditor');
+    Route::post('me/saveDraft','MeController@saveDraft');//将文章存到草稿箱
+    Route::get('me/draft','MeController@draft');
+//    Route::get('me/draftToEdit','MeController@draftToEdit');//草稿箱到编辑器继续编辑
+//    Route::get('me/editorDraft','MeController@editorDraft');//继续编辑返回有编辑内容的编辑器
 });
 //登录后退出路由
 Route::get('admin/logout','Admin\LoginController@logout');
