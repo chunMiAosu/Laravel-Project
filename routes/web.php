@@ -13,14 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('admin.login');
-//});
-Route::get('admin/login','Admin\LoginController@login');
-Route::post('admin/doLogin','Admin\LoginController@doLogin');
-Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['isLogin']],function(){
+Route::get('/login','LoginController@login'); //登录
+Route::post('/doLogin','LoginController@doLogin');
+Route::get('/register','LoginController@register'); //注册（只有普通用户需要注册）
+Route::post('/doRegister','LoginController@doRegister');
+
+Route::group(['middleware' => ['isLogin']],function() {
+    //登录后退出路由
+    Route::get('/logout','LoginController@logout');
     //后台首页路由
-    Route::get('index','LoginController@index');
+    Route::get('admin/index','LoginController@index')->middleware('hasPer');
+    //返回网站首页
+    Route::get('/home','LoginController@home');
+    Route::get('/home/{type}','LoginController@homeType');
+});
+
+
+Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['isLogin','hasPer']],function(){
 
     //"情况统计"模块路由
     Route::get('statistic/totalArticle','StatisticController@totalArticle');
@@ -29,13 +38,18 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['isLog
     Route::get('article','ArticleController@article');
     Route::get('article/delete','ArticleController@delete');//删除
 
-    //"我"模块路由
-    Route::get('me/editor','MeController@editor');
-    Route::post('me/doEditor','MeController@doEditor');
-    Route::post('me/saveDraft','MeController@saveDraft');//将文章存到草稿箱
-    Route::get('me/draft','MeController@draft');
-//    Route::get('me/draftToEdit','MeController@draftToEdit');//草稿箱到编辑器继续编辑
-//    Route::get('me/editorDraft','MeController@editorDraft');//继续编辑返回有编辑内容的编辑器
+    Route::group(['prefix' => 'me'],function() {
+        //"我"模块路由
+        Route::get('editor', 'MeController@editor');
+        Route::post('doEditor', 'MeController@doEditor');
+        Route::post('saveDraft', 'MeController@saveDraft');//将文章存到草稿箱
+        Route::get('draft', 'MeController@draft');
+        //   Route::get('me/authorWorking','MeController@authorWorking');//编辑员的审核中
+        Route::get('auditorWorking','MeController@auditorWorking');//审核员的审核中
+        Route::get('auditorWorkingRes/{id}/{res}','MeController@auditorWorkingRes');//审核员做出审核判断
+        Route::get('auditorRes/{status}','MeController@auditorRes');//审核员查看审核过的文章
+    });
 });
-//登录后退出路由
-Route::get('admin/logout','Admin\LoginController@logout');
+//返回没有权限的页面
+Route::get('/noPermission','LoginController@noPermission');
+

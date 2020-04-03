@@ -35,19 +35,19 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0" style="height: 600px;">
-                                <table class="table table-head-fixed text-nowrap">
+                                <table class="table table-head-fixed" style="table-layout: fixed;width: 100%">
                                     <thead>
                                     <tr>
-                                        <th>题目</th>
-                                        <th>内容</th>
-                                        <th>类型</th>
+                                        <th width="20%">题目</th>
+                                        <th width="40%">内容</th>
+                                        <th width="10%">类型</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($article as $a)
                                         <tr>
-                                            <td>{{$a['topic']}}</td>
-                                            <td>{{$a['content']}}</td>
+                                            <td style="word-wrap: break-word;word-break: break-all;">{{$a['topic']}}</td>
+                                            <td style="word-wrap: break-word;word-break: break-all;">{{$a['content']}}</td>
                                             <td>{{$a['type']}}</td>
                                             <form action="/admin/me/editor" method="get">
                                                 <input type="hidden" name="id" value="{{$a['id']}}">

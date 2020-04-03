@@ -21,7 +21,7 @@ class IsLogin
         }
         else
         {
-            return redirect('admin/login')
+            return redirect('/login')
                 ->withErrors('干嘛呢干嘛呢');
         }
     }

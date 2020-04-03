@@ -19,4 +19,10 @@ class User extends Model
     //是否维护created_at和updated_at字段
     public $timestamps = false;
 
+    //关联Role模型 1-1
+    public function role()
+    {
+        return $this->belongsTo('App\Model\Role','role_id');
+    }
+
 }

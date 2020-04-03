@@ -18,4 +18,10 @@ class Article extends Model
 //
     //是否维护created_at和updated_at字段
     public $timestamps = false;
+
+    //关联AType模型 1-1
+    public function aType()
+    {
+        return $this->belongsTo('App\Model\AType','type');
+    }
 }

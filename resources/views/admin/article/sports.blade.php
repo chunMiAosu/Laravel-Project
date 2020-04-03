@@ -35,27 +35,26 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body table-responsive p-0" style="height: 600px;">
-                                    <table class="table table-head-fixed text-nowrap">
+                                    <table class="table table-head-fixed" style="table-layout:fixed;width: 100%">
                                         <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>题目</th>
-                                            <th>作者</th>
-                                            <th>审核员</th>
-                                            <th>内容</th>
-                                            <th>操作</th>
+                                            <th width="5%">ID</th>
+                                            <th width="20%">题目</th>
+                                            <th width="10%">作者</th>
+                                            <th width="10%">审核员</th>
+                                            <th width="40%">内容</th>
+                                            <th width="15%">操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($article as $a)
                                             <tr>
                                                 <td>{{$a['id']}}</td>
-                                                <td>{{$a['topic']}}</td>
+                                                <td style="word-wrap:break-word;">{{$a['topic']}}</td>
                                                 <td>{{$a['author']}}</td>
                                                 <td>{{$a['auditor']}}</td>
-                                                <td>{{$a['content']}}</td>
-                                                <input type="hidden" name="uid" value="{{$a['id']}}">
-                                                <td><button type="button" class="btn btn-block btn-danger">删除</button> </td>
+                                                <td style="word-wrap:break-word;word-break:break-all;">{{$a['content']}}</td>
+                                                <td><button id="{{$a['id']}}" type="button" class="btn btn-block btn-danger">删除</button> </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -74,7 +73,7 @@
     <script>
         $(function(){
             $(".btn").on('click',function (event) {
-                let uid = $("input[name='uid']").val();
+                let uid = this.id;
                 $.ajax({
                     url : '/admin/article/delete',
                     type : 'get',

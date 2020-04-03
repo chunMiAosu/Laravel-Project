@@ -6,7 +6,7 @@
             <a class="nav-link" data-widget="pushmenu" href="/admin/index" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="../../index3.html" class="nav-link">Home</a>
+            <a href="/home" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Contact</a>
@@ -114,7 +114,7 @@
         </li>
 
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/admin/logout" class="nav-link">退出</a>
+            <a href="/logout" class="nav-link">退出</a>
         </li>
     </ul>
 </nav>

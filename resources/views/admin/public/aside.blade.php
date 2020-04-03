@@ -46,38 +46,88 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/me/editor" class="nav-link">
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Edit</p>
+                                <p>
+                                    编辑员
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
                             </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                                <li class="nav-item">
+                                    <a href="/admin/me/editor" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Edit</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/me/draft" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>草稿箱</p>
+                                        <span class="right badge badge-danger">2</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../index2.html" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>已通过审核</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../index2.html" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>审核不通过</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/me/authorWorking" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>等待审核 编辑员</p>
+                                        <span class="right badge badge-danger">2</span>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="/admin/me/draft" class="nav-link">
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>草稿箱</p>
-                                <span class="right badge badge-danger">2</span>
+                                <p>
+                                    审核员
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
                             </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                                <li class="nav-item">
+                                    <a href="/admin/me/auditorWorking" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>等待审核</p>
+                                        <span class="right badge badge-danger">2</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/me/auditorRes/success" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>审核通过</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/me/auditorRes/fail" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>审核不通过</p>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="../../index.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>正在审核中</p>
-                                <span class="right badge badge-danger">2</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../../index2.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>已通过审核</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../../index2.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>审核不通过</p>
-                            </a>
-                        </li>
+
+
+
+
+
+
+
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">

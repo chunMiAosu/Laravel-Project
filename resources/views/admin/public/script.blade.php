@@ -10,3 +10,4 @@
 <script src="/admin/js/demo.js"></script>
 <!-- Summernote -->
 <script src="/admin/js/summernote-bs4.min.js"></script>
+<script src="/admin/js/toasts.js"></script>

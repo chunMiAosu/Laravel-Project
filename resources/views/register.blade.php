@@ -2,20 +2,21 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>后台登录</title>
+    <title>注册</title>
 
-    <link type="text/css" href="/admin/login_css/style.css" rel="stylesheet" />
+    <link type="text/css" href="/login_css/style.css" rel="stylesheet" />
 
 </head>
 <body>
 
-<script src="/admin/login_js/anime.min.js"></script>
+<script src="/login_js/anime.min.js"></script>
 
 <div class="page">
     <div class="container">
         <div class="left">
-            <div class="login">后台登录</div>
+            <div class="login">注册</div>
             <div class="eula">欢迎使用！</div>
+            <div class="eula"><a href="/login">我要登录</a></div>
             @if(count($errors) > 0)
                 <div>
                     <ul>
@@ -26,7 +27,7 @@
                 </div>
             @endif
         </div>
-        <div class="right">
+        <div class="right" style="height: 350px">
             <svg viewBox="0 0 320 300">
                 <defs>
                     <linearGradient
@@ -51,11 +52,13 @@
             </svg>
 
             <div class="form">
-                <form action="/admin/doLogin" method="post">
+                <form action="/doRegister" method="post">
                     <label for="email">邮箱</label>
                     <input name="email" type="email" id="email" required="required">
                     <label for="password">密码</label>
                     <input name="password" type="password" id="password" required="required">
+                    <label for="password">确认密码</label>
+                    <input name="repassword" type="password" id="repassword" required="required">
                     {{csrf_field()}}
                     <input type="submit" id="submit" value="提交">
                 </form>

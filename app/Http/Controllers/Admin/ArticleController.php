@@ -37,7 +37,7 @@ class ArticleController extends Controller
         {
             $article_type = DB::table('article_type')->where('type','=','体育')->first();
         }
-        $data = Article::where('type','=',$article_type->id)->where('status','=','success')->get();
+        $data = Article::where('type','=',$article_type->id)->where('status','=','success')->where('publish','=','yes')->get();
         $article = array(
             array(
                 "id" => -1,
@@ -74,8 +74,13 @@ class ArticleController extends Controller
         if($role_id == $userRole_id)
         {
             $data = Article::find($article_id);
-            $data -> delete();
-            $res = 1;
+            $data -> publish = "no";
+            $res = $data -> save();
+            if($res)
+            {
+                $res = 1;
+            }
+
         }
         return $res;
     }
