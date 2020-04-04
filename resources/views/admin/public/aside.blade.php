@@ -19,7 +19,7 @@
                 <img src="/admin/img/user.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">name</a>
+                <a href="#" class="d-block" id="user_name">user_name</a>
             </div>
         </div>
 
@@ -30,14 +30,14 @@
                      with font-awesome or any other icon font library -->
 
                 <li class="nav-item">
-                    <a href="/admin/statistic/totalArticle" class="nav-link">
+                    <a href="/admin/statistic/totalArticle" class="nav-link" id="statistic">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             情况统计
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview" id="me">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -46,51 +46,51 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                        <li class="nav-item has-treeview " id="author">
+                            <a href="#" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     编辑员
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview" style="display: none;">
+                            <ul class="nav nav-treeview" style="display: none;" id="author_display">
                                 <li class="nav-item">
-                                    <a href="/admin/me/editor" class="nav-link">
+                                    <a href="/admin/me/editor" class="nav-link" id="author_edit">
                                         <i class="far fa-dot-circle nav-icon"></i>
                                         <p>Edit</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/me/draft" class="nav-link">
+                                    <a href="/admin/me/draft" class="nav-link" id="author_draft">
                                         <i class="far fa-dot-circle nav-icon"></i>
                                         <p>草稿箱</p>
-                                        <span class="right badge badge-danger">2</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../../index2.html" class="nav-link">
+                                    <a href="/admin/me/authorWorking" class="nav-link" id="author_working">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>已通过审核</p>
+                                        <p>审核中</p>
+                                        <span class="right badge badge-danger" id="author_workingNum"></span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../../index2.html" class="nav-link">
+                                    <a href="/admin/me/authorRes/success" class="nav-link" id="author_success">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>审核通过</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/me/authorRes/fail" class="nav-link" id="author_fail">
                                         <i class="far fa-dot-circle nav-icon"></i>
                                         <p>审核不通过</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="/admin/me/authorWorking" class="nav-link">
-                                        <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>等待审核 编辑员</p>
-                                        <span class="right badge badge-danger">2</span>
-                                    </a>
-                                </li>
+
 
                             </ul>
                         </li>
-                        <li class="nav-item has-treeview">
+                        <li class="nav-item has-treeview" id="auditor">
                             <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -98,22 +98,22 @@
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview" style="display: none;">
+                            <ul class="nav nav-treeview" style="display: none;" id="auditor_display">
                                 <li class="nav-item">
-                                    <a href="/admin/me/auditorWorking" class="nav-link">
+                                    <a href="/admin/me/auditorWorking" class="nav-link" id="auditor_working">
                                         <i class="far fa-dot-circle nav-icon"></i>
                                         <p>等待审核</p>
-                                        <span class="right badge badge-danger">2</span>
+                                        <span class="right badge badge-danger" id="auditor_workingNum"></span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/me/auditorRes/success" class="nav-link">
+                                    <a href="/admin/me/auditorRes/success" class="nav-link" id="auditor_success">
                                         <i class="far fa-dot-circle nav-icon"></i>
                                         <p>审核通过</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/me/auditorRes/fail" class="nav-link">
+                                    <a href="/admin/me/auditorRes/fail" class="nav-link" id="auditor_fail">
                                         <i class="far fa-dot-circle nav-icon"></i>
                                         <p>审核不通过</p>
                                     </a>
@@ -122,50 +122,43 @@
                             </ul>
                         </li>
 
-
-
-
-
-
-
                     </ul>
                 </li>
-                <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview" id="article">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             文章管理
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/article?type=politics" class="nav-link">
+                            <a href="/admin/article?type=politics" class="nav-link" id="a_politics">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>时政</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/article?type=finance" class="nav-link">
+                            <a href="/admin/article?type=finance" class="nav-link" id="a_finance">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>财经</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/article?type=military" class="nav-link">
+                            <a href="/admin/article?type=military" class="nav-link" id="a_military">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>军事</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/article?type=education" class="nav-link">
+                            <a href="/admin/article?type=education" class="nav-link" id="a_education">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>教育</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/article?type=sports" class="nav-link">
+                            <a href="/admin/article?type=sports" class="nav-link" id="a_sports">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>体育</p>
                             </a>

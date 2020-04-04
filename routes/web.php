@@ -44,7 +44,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['isLog
         Route::post('doEditor', 'MeController@doEditor');
         Route::post('saveDraft', 'MeController@saveDraft');//将文章存到草稿箱
         Route::get('draft', 'MeController@draft');
-        //   Route::get('me/authorWorking','MeController@authorWorking');//编辑员的审核中
+        Route::get('authorWorking','MeController@authorWorking');//编辑员的审核中
+        Route::get('authorRes/{status}','MeController@authorRes');//编辑员查看被审核过的文章
+
+
         Route::get('auditorWorking','MeController@auditorWorking');//审核员的审核中
         Route::get('auditorWorkingRes/{id}/{res}','MeController@auditorWorkingRes');//审核员做出审核判断
         Route::get('auditorRes/{status}','MeController@auditorRes');//审核员查看审核过的文章

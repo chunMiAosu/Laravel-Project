@@ -101,6 +101,15 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
         $(function(){
+            let tmp = document.getElementById("me").className;
+            document.getElementById("me").setAttribute("class",tmp+" menu-open");
+            tmp = document.getElementById("author").className;
+            document.getElementById("author").setAttribute("class",tmp+" menu-open");
+            document.getElementById("author_display").setAttribute("style","display:block");
+            tmp = document.getElementById("author_edit").className;
+            document.getElementById("author_edit").setAttribute("class",tmp+" active");
+
+
             $("#submit").on('click',function (event) {
                 let topic = $("input[id='inputName']").val();
                 let content = $("textarea[id='inputDescription']").val();

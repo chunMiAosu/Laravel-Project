@@ -72,6 +72,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
         $(function(){
+            let tmp = document.getElementById("article").className;
+            document.getElementById("article").setAttribute("class",tmp+" menu-open");
+            tmp = document.getElementById("a_education").className;
+            document.getElementById("a_education").setAttribute("class",tmp+" active");
+
             $(".btn").on('click',function (event) {
                 let uid = this.id;
                 $.ajax({

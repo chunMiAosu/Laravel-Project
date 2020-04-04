@@ -201,6 +201,19 @@
             </section>
     </div>
 </div>
+<script>
+    $(function() {
+        let tmp = document.getElementById("me").className;
+        document.getElementById("me").setAttribute("class",tmp+" menu-open");
+        tmp = document.getElementById("auditor").className;
+        document.getElementById("auditor").setAttribute("class",tmp+" menu-open");
+        document.getElementById("auditor_display").setAttribute("style","display:block");
+        tmp = document.getElementById("auditor_working").className;
+        document.getElementById("auditor_working").setAttribute("class",tmp+" active");
+
+        document.getElementById("auditor_workingNum").innerText={{count($data)}};
+    });
+</script>
 
 </body>
 </html>

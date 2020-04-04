@@ -22,16 +22,6 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">草稿箱</h3>
-
-                                <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0" style="height: 600px;">
@@ -69,7 +59,18 @@
         </section>
     </div>
 </div>
+<script>
 
+    $(function() {
+        let tmp = document.getElementById("me").className;
+        document.getElementById("me").setAttribute("class",tmp+" menu-open");
+        tmp = document.getElementById("author").className;
+        document.getElementById("author").setAttribute("class",tmp+" menu-open");
+        document.getElementById("author_display").setAttribute("style","display:block");
+        tmp = document.getElementById("author_draft").className;
+        document.getElementById("author_draft").setAttribute("class",tmp+" active");
+    });
+</script>
 
 </body>
 </html>

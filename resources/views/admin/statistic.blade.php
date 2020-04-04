@@ -131,12 +131,14 @@
                     </div>
                 </section>
             </div>
-
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-
-        </aside>
     </div>
+<script>
+
+    $(function() {
+        let tmp = document.getElementById("statistic").className;
+        document.getElementById("statistic").setAttribute("class",tmp+" active");
+    });
+</script>
 
 
 </body>

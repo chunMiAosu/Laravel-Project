@@ -62,7 +62,7 @@
                                                                 <!-- /.card-tools -->
                                                             </div>
                                                             <div class="card-body" style="display: block;">
-                                                                <h5 class="card-title">-{{$d->author}}</h5>
+                                                                <h5 class="card-title">审核员：{{$d->auditor}}</h5>
                                                                 <p class="card-text">
                                                                     {{$d->content}}
                                                                 </p>
@@ -89,7 +89,7 @@
                                                                 <!-- /.card-tools -->
                                                             </div>
                                                             <div class="card-body" style="display: block;">
-                                                                <h5 class="card-title">-{{$d->author}}</h5>
+                                                                <h5 class="card-title">审核员：{{$d->auditor}}</h5>
                                                                 <p class="card-text">
                                                                     {{$d->content}}
                                                                 </p>
@@ -116,7 +116,7 @@
                                                                 <!-- /.card-tools -->
                                                             </div>
                                                             <div class="card-body" style="display: block;">
-                                                                <h5 class="card-title">-{{$d->author}}</h5>
+                                                                <h5 class="card-title">审核员：{{$d->auditor}}</h5>
                                                                 <p class="card-text">
                                                                     {{$d->content}}
                                                                 </p>
@@ -143,7 +143,7 @@
                                                                 <!-- /.card-tools -->
                                                             </div>
                                                             <div class="card-body" style="display: block;">
-                                                                <h5 class="card-title">-{{$d->author}}</h5>
+                                                                <h5 class="card-title">审核员：{{$d->auditor}}</h5>
                                                                 <p class="card-text">
                                                                     {{$d->content}}
                                                                 </p>
@@ -170,7 +170,7 @@
                                                                 <!-- /.card-tools -->
                                                             </div>
                                                             <div class="card-body" style="display: block;">
-                                                                <h5 class="card-title">-{{$d->author}}</h5>
+                                                                <h5 class="card-title">审核员：{{$d->auditor}}</h5>
                                                                 <p class="card-text">
                                                                     {{$d->content}}
                                                                 </p>
@@ -195,19 +195,19 @@
     $(function() {
         let tmp = document.getElementById("me").className;
         document.getElementById("me").setAttribute("class",tmp+" menu-open");
-        tmp = document.getElementById("auditor").className;
-        document.getElementById("auditor").setAttribute("class",tmp+" menu-open");
-        document.getElementById("auditor_display").setAttribute("style","display:block");
+        tmp = document.getElementById("author").className;
+        document.getElementById("author").setAttribute("class",tmp+" menu-open");
+        document.getElementById("author_display").setAttribute("style","display:block");
         let path = window.location.pathname;
-        if(path == "/admin/me/auditorRes/success")
+        if(path == "/admin/me/authorRes/success")
         {
-            tmp = document.getElementById("auditor_success").className;
-            document.getElementById("auditor_success").setAttribute("class",tmp+" active");
+            tmp = document.getElementById("author_success").className;
+            document.getElementById("author_success").setAttribute("class",tmp+" active");
         }
         else
         {
-            tmp = document.getElementById("auditor_fail").className;
-            document.getElementById("auditor_fail").setAttribute("class",tmp+" active");
+            tmp = document.getElementById("author_fail").className;
+            document.getElementById("author_fail").setAttribute("class",tmp+" active");
         }
     });
 </script>

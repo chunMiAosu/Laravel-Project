@@ -211,8 +211,34 @@ class MeController extends Controller
     //正在审核中（编辑员）
     public function authorWorking()
     {
-        return view('admin.me.authorWorking');
+        $data = Article::where('status','=','working')->where('author','=',session()->get('user_id'))->get();
+        for($i=0;$i<count($data);$i++)
+        {
+            $tmp = $data[$i]->aType->type;
+            $data[$i]->type = $tmp;
+        }
+        return view('admin.me.authorWorking',compact('data'));
     }
 
+    //编辑员查看审核结果
+    public function authorRes($status)
+    {
+        $data = array();
+        if($status == "success")
+        {
+            $data = Article::where('status','=','success')->where('author','=',session()->get('user_id'))->get();
+        }
+        else
+        {
+            $data = Article::where('status','=','fail')->where('author','=',session()->get('user_id'))->get();
+        }
+        for ($i=0;$i<count($data);$i++)
+        {
+            $tmp = User::where('id','=',$data[$i]->auditor)->first()->name;
+            $data[$i]->auditor = $tmp;
+            $data[$i]->type = $data[$i]->aType->type;
+        }
+        return view('admin.me.authorRes',compact('data'));
+    }
 
 }
