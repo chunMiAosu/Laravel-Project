@@ -41,84 +41,79 @@ class MeController extends Controller
         return view('admin.me.editor', compact('article_type', 'draft_data'));
     }
 
-    //对IDE提交的内容进行处理
-    public function doEditor(Request $request)
+    public function editorAction(Request $request)
     {
+        $input = $request->input('act');
+        $res = false;
         //获取当前登录用户的id topic content
-        $res = false;
         $user_id = session()->get('user_id');
         $topic = $request->input('topic');
         $content = $request->input('content');
         $type = $request->input('type');
-//        dd($content);
-        if ($topic && $content && $type) //都有数据才能提交成功
+        if($input == "submit")
         {
-            //获取type的id
-            $type_id = DB::table('article_type')->where('type', '=', $type)->first()->id;
-            //将数据存到数据库(文章待审核 没有auditor)
-            $article = new Article();
-            $article->content = $content;
-            $article->type = $type_id;
-            $article->author = $user_id;
-            $article->topic = $topic;
-            $article->status = "working";
-            $res = $article->save();
-        }
+            if ($topic && $content && $type) //都有数据才能提交成功
+            {
+                //获取type的id
+                $type_id = DB::table('article_type')->where('type', '=', $type)->first()->id;
+                //将数据存到数据库(文章待审核 没有auditor)
+                $article = new Article();
+                $article->content = $content;
+                $article->type = $type_id;
+                $article->author = $user_id;
+                $article->topic = $topic;
+                $article->status = "working";
+                $res = $article->save();
+            }
 
-        if ($res)
+            if ($res)
+            {
+                $data = [
+                    'status' => 0,
+                    'message' => '提交成功'
+                ];
+            } else
+            {
+                $data = [
+                    'status' => 1,
+                    'message' => '提交失败'
+                ];
+            }
+        }
+        else if($input == "saveDraft")
         {
-            $data = [
-                'status' => 0,
-                'message' => '提交成功'
-            ];
-        } else
-        {
-            $data = [
-                'status' => 1,
-                'message' => '提交失败'
-            ];
+            $type_id = null;
+            if ($type)
+            {
+                $type_id = DB::table('article_type')->where('type', '=', $type)->first()->id;
+            }
+
+            if ($topic || $content || $type)
+            {
+                $draft = new Draft();
+                $draft->author = $user_id;
+                $draft->topic = $topic;
+                $draft->content = $content;
+                $draft->type = $type_id;
+                $res = $draft->save();
+            }
+            if ($res)
+            {
+                $data = [
+                    'status' => 2,
+                    'message' => '存入草稿箱成功'
+                ];
+            } else
+            {
+                $data = [
+                    'status' => 3,
+                    'message' => '存入草稿箱失败'
+                ];
+            }
         }
         return $data;
     }
 
-    //将文章存入草稿箱
-    public function saveDraft(Request $request)
-    {
-        $res = false;
-        $user_id = session()->get('user_id');
-        $topic = $request->input('topic');
-        $content = $request->input('content');
-        $type = $request->input('type');
-        $type_id = null;
-        if ($type)
-        {
-            $type_id = DB::table('article_type')->where('type', '=', $type)->first()->id;
-        }
-
-        if ($topic || $content || $type)
-        {
-            $draft = new Draft();
-            $draft->author = $user_id;
-            $draft->topic = $topic;
-            $draft->content = $content;
-            $draft->type = $type_id;
-            $res = $draft->save();
-        }
-        if ($res)
-        {
-            $data = [
-                'status' => 2,
-                'message' => '存入草稿箱成功'
-            ];
-        } else
-        {
-            $data = [
-                'status' => 3,
-                'message' => '存入草稿箱失败'
-            ];
-        }
-        return $data;
-    }
 
     //草稿箱
     public function draft()

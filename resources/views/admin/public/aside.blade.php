@@ -134,31 +134,31 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/article?type=politics" class="nav-link" id="a_politics">
+                            <a href="/admin/article/politics" class="nav-link" id="a_politics">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>时政</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/article?type=finance" class="nav-link" id="a_finance">
+                            <a href="/admin/article/finance" class="nav-link" id="a_finance">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>财经</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/article?type=military" class="nav-link" id="a_military">
+                            <a href="/admin/article/military" class="nav-link" id="a_military">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>军事</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/article?type=education" class="nav-link" id="a_education">
+                            <a href="/admin/article/education" class="nav-link" id="a_education">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>教育</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/article?type=sports" class="nav-link" id="a_sports">
+                            <a href="/admin/article/sports" class="nav-link" id="a_sports">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>体育</p>
                             </a>

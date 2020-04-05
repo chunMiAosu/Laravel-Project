@@ -35,14 +35,14 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['isLog
     Route::get('statistic/totalArticle','StatisticController@totalArticle');
 
     //"文章管理"模块路由
-    Route::get('article','ArticleController@article');
-    Route::get('article/delete','ArticleController@delete');//删除
+    Route::get('article/{type}','ArticleController@article');
+    Route::get('article/{type}/delete','ArticleController@delete');//删除
 
     Route::group(['prefix' => 'me'],function() {
         //"我"模块路由
         Route::get('editor', 'MeController@editor');
-        Route::post('doEditor', 'MeController@doEditor');
-        Route::post('saveDraft', 'MeController@saveDraft');//将文章存到草稿箱
+        Route::post('editor/action', 'MeController@editorAction');
+
         Route::get('draft', 'MeController@draft');
         Route::get('authorWorking','MeController@authorWorking');//编辑员的审核中
         Route::get('authorRes/{status}','MeController@authorRes');//编辑员查看被审核过的文章

@@ -80,7 +80,7 @@
             $(".btn").on('click',function (event) {
                 let uid = this.id;
                 $.ajax({
-                    url : '/admin/article/delete',
+                    url : '/admin/article/sports/delete',
                     type : 'get',
                     data : 'id='+uid,
                     dataType : 'json',

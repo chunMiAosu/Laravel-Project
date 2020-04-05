@@ -111,16 +111,18 @@
 
 
             $("#submit").on('click',function (event) {
+                let act = "submit";
                 let topic = $("input[id='inputName']").val();
                 let content = $("textarea[id='inputDescription']").val();
                 let type = $("select[name='type']").val();
                 let allData = {
+                    'act':act,
                     'topic': topic,
                     'content': content,
                     'type' : type
                 };
                 $.ajax({
-                    url : '/admin/me/doEditor',
+                    url : '/admin/me/editor/action',
                     type : 'post',
                     data : allData,
                     dataType : 'json',
@@ -142,16 +144,18 @@
                 });
             });
             $("#draft").on('click',function (event) {
+                let act = "saveDraft";
                 let topic = $("input[id='inputName']").val();
                 let content = $("textarea[id='inputDescription']").val();
                 let type = $("select[name='type']").val();
                 let allData = {
+                    'act' : act,
                     'topic': topic,
                     'content': content,
                     'type' : type
                 };
                 $.ajax({
-                    url : '/admin/me/saveDraft',
+                    url : '/admin/me/editor/action',
                     type : 'post',
                     data : allData,
                     dataType : 'json',

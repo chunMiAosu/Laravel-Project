@@ -35,7 +35,7 @@
                                     <div class="icon">
                                         <i class="fas fa-shopping-cart"></i>
                                     </div>
-                                    <a href="/admin/article?type=politics" class="small-box-footer">
+                                    <a href="/admin/article/politics" class="small-box-footer">
                                         More info <i class="fas fa-arrow-circle-right"></i>
                                     </a>
                                 </div>
@@ -56,7 +56,7 @@
                                     <div class="icon">
                                         <i class="ion ion-stats-bars"></i>
                                     </div>
-                                    <a href="/admin/article?type=finance" class="small-box-footer">
+                                    <a href="/admin/article/finance" class="small-box-footer">
                                         More info <i class="fas fa-arrow-circle-right"></i>
                                     </a>
                                 </div>
@@ -77,7 +77,7 @@
                                     <div class="icon">
                                         <i class="fas fa-user-plus"></i>
                                     </div>
-                                    <a href="/admin/article?type=military" class="small-box-footer">
+                                    <a href="/admin/article/military" class="small-box-footer">
                                         More info <i class="fas fa-arrow-circle-right"></i>
                                     </a>
                                 </div>
@@ -98,7 +98,7 @@
                                     <div class="icon">
                                         <i class="fas fa-chart-pie"></i>
                                     </div>
-                                    <a href="/admin/article?type=education" class="small-box-footer">
+                                    <a href="/admin/article/education" class="small-box-footer">
                                         More info <i class="fas fa-arrow-circle-right"></i>
                                     </a>
                                 </div>
@@ -122,7 +122,7 @@
                                     <div class="icon">
                                         <i class="fas fa-shopping-cart"></i>
                                     </div>
-                                    <a href="/admin/article?type=sports" class="small-box-footer">
+                                    <a href="/admin/article/sports" class="small-box-footer">
                                         More info <i class="fas fa-arrow-circle-right"></i>
                                     </a>
                                 </div>

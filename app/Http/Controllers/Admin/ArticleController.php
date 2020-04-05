@@ -13,9 +13,9 @@ use PhpParser\Node\Expr\Cast\Object_;
 class ArticleController extends Controller
 {
     //根据不同文章分类查找文章并返回给前端
-    public function article(Request $request)
+    public function article($type)
     {
-        $type = $request -> input('type');
+        //$type = $request -> input('type');
         $article_type = new class{};
         if($type == 'politics')
         {
