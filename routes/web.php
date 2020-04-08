@@ -38,8 +38,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['isLog
     Route::get('article/{type}','ArticleController@article');
     Route::get('article/{type}/delete','ArticleController@delete');//删除
 
+    //"我"模块路由
     Route::group(['prefix' => 'me'],function() {
-        //"我"模块路由
+
         Route::get('editor', 'MeController@editor');
         Route::post('editor/action', 'MeController@editorAction');
 
@@ -52,6 +53,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['isLog
         Route::get('auditorWorkingRes/{id}/{res}','MeController@auditorWorkingRes');//审核员做出审核判断
         Route::get('auditorRes/{status}','MeController@auditorRes');//审核员查看审核过的文章
     });
+
+    //人员管理模块路由
+    Route::get('people/auditor','PeopleController@auditor');
+    Route::get('people/author','PeopleController@author');
+    Route::get('people/general','PeopleController@general');
 });
 //返回没有权限的页面
 Route::get('/noPermission','LoginController@noPermission');

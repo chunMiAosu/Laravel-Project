@@ -59,7 +59,8 @@ class ArticleController extends Controller
         }
         if($i == 0)
             $article = [];
-        return view('admin.article.'.$type,compact('article'));
+        $user_name = session()->get('user_name');
+        return view('admin.article.'.$type,compact('article','user_name'));
     }
 
     //删除

@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>时政</title>
+    <title>文章-体育</title>
     @include('admin.public.styles')
     @include('admin.public.script')
 </head>

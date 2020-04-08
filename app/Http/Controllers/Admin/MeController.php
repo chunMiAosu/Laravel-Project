@@ -38,7 +38,8 @@ class MeController extends Controller
         }
         //获取所有文章分类
         $article_type = DB::table('article_type')->get();
-        return view('admin.me.editor', compact('article_type', 'draft_data'));
+        $user_name = session()->get('user_name');
+        return view('admin.me.editor', compact('article_type', 'draft_data','user_name'));
     }
 
     public function editorAction(Request $request)
@@ -142,7 +143,8 @@ class MeController extends Controller
             $i++;
         }
         $count = $i;
-        return view('admin.me.draft', compact('article', 'count'));
+        $user_name = session()->get('user_name');
+        return view('admin.me.draft', compact('article', 'count','user_name'));
     }
 
     //等待审核（审核员）
@@ -156,7 +158,8 @@ class MeController extends Controller
             $data[$i]->author = $tmp;
             $data[$i]->type = $data[$i]->aType->type;
         }
-        return view('admin.me.auditorWorking', compact('data'));
+        $user_name = session()->get('user_name');
+        return view('admin.me.auditorWorking', compact('data','user_name'));
     }
 
     //审核员做出审核
@@ -200,7 +203,10 @@ class MeController extends Controller
             $data[$i]->author = $tmp;
             $data[$i]->type = $data[$i]->aType->type;
         }
-        return view('admin.me.auditorRes',compact('data'));
+
+        $user_name = session()->get('user_name');
+
+        return view('admin.me.auditorRes',compact('data','user_name'));
     }
 
     //正在审核中（编辑员）
@@ -212,7 +218,8 @@ class MeController extends Controller
             $tmp = $data[$i]->aType->type;
             $data[$i]->type = $tmp;
         }
-        return view('admin.me.authorWorking',compact('data'));
+        $user_name = session()->get('user_name');
+        return view('admin.me.authorWorking',compact('data','user_name'));
     }
 
     //编辑员查看审核结果
@@ -233,7 +240,8 @@ class MeController extends Controller
             $data[$i]->auditor = $tmp;
             $data[$i]->type = $data[$i]->aType->type;
         }
-        return view('admin.me.authorRes',compact('data'));
+        $user_name = session()->get('user_name');
+        return view('admin.me.authorRes',compact('data','user_name'));
     }
 
 }

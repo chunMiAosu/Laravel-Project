@@ -19,7 +19,7 @@
                 <img src="/admin/img/user.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block" id="user_name">user_name</a>
+                <a href="#" class="d-block" id="user_name">{{$user_name}}</a>
             </div>
         </div>
 
@@ -165,25 +165,31 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview" id="people">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
-                            角色管理
+                            人员管理
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="../charts/chartjs.html" class="nav-link">
+                            <a href="/admin/people/auditor" class="nav-link" id="people_auditor">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>管理员</p>
+                                <p>审核员</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../charts/flot.html" class="nav-link">
+                            <a href="/admin/people/author" class="nav-link" id="people_author">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>编辑</p>
+                                <p>编辑员</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/people/general" class="nav-link" id="people_general">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>普通用户</p>
                             </a>
                         </li>
                     </ul>

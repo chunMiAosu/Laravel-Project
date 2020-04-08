@@ -133,6 +133,7 @@ class LoginController extends Controller
             {
                 //存用户id和用户拥有的权限到session
                 session(['user_id' => $user['id']]);
+                session(['user_name' => $user['name']]);
                 $role = $user->role;
                 $arr = [];//存放权限对应的url
                 $pers = $role->permission;
@@ -155,7 +156,8 @@ class LoginController extends Controller
     //后台首页
     public function index()
     {
-        return view('admin.index');
+        $user_name = session()->get('user_name');
+        return view('admin.index',compact('user_name'));
     }
 
     //退出登录

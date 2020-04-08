@@ -24,6 +24,7 @@ class StatisticController extends Controller
         {
             $num[$i['type']]++;
         }
-        return view('admin.statistic', compact('num', 'all_type'));
+        $user_name = session()->get('user_name');
+        return view('admin.statistic', compact('num', 'all_type','user_name'));
     }
 }
