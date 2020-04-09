@@ -6,10 +6,10 @@
             <a class="nav-link" data-widget="pushmenu" href="/admin/index" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/home" class="nav-link">Home</a>
+            <a href="/home" class="nav-link">网站首页</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
+            <a href="/changeInfo" class="nav-link">修改资料</a>
         </li>
     </ul>
 

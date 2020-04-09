@@ -60,7 +60,7 @@ class LoginController extends Controller
             $role_id = Role::where('type', '=', '普通用户')->first()->id;
             $user = new User();
             $user->email = $input['email'];
-            $user->password = $input['password'];
+            $user->password = password_hash($input['password'], PASSWORD_DEFAULT);
             $user->role_id = $role_id;
             $res = $user->save();
             if ($res)
@@ -125,7 +125,7 @@ class LoginController extends Controller
         {
             //用户存在
             //验证密码是否正确
-            if ($input['password'] != $user->password)
+            if (!password_verify($input['password'], $user->password))
             {
                 return redirect('/login')
                     ->withErrors('密码错误');
@@ -199,5 +199,50 @@ class LoginController extends Controller
             $article[$i]->author = $tmp;
         }
         return view('home',compact('name','article'));
+    }
+
+    //修改资料
+    public function changeInfo()
+    {
+        return view('admin.changeInfo');
+    }
+    public function doChangeInfo(Request $request)
+    {
+        $input = $request->input();
+
+        //表单验证
+        $rule = [
+            'name' => 'required|max:10|min:1'
+        ];
+        $msg = [
+            'name.required' => '昵称必须输入',
+            'name.max' => '昵称长度必须小于10',
+            'name.min' => '昵称长度必须大于1'
+        ];
+        $validator = Validator::make($input, $rule, $msg);
+        if ($validator->fails())
+        {
+            return redirect('/changeInfo')
+                ->withErrors($validator);
+        }
+        else
+        {
+            $user = User::find(session()->get('user_id'));
+            $user->name = $input['name'];
+            $res = $user->save();
+            if($res)
+            {
+                session(['user_name'=>$input['name']]);
+                if($user->role->type == "普通用户")
+                    return redirect('/home');
+                else
+                    return redirect('/admin/index');
+            }
+            else
+            {
+                return redirect('/changeInfo')
+                    ->withErrors("修改失败");
+            }
+        }
     }
 }

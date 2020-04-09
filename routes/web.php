@@ -26,6 +26,10 @@ Route::group(['middleware' => ['isLogin']],function() {
     //返回网站首页
     Route::get('/home','LoginController@home');
     Route::get('/home/{type}','LoginController@homeType');
+
+    //修改资料
+    Route::get('/changeInfo','LoginController@changeInfo');
+    Route::post('/doChangeInfo','LoginController@doChangeInfo');
 });
 
 
